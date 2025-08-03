@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import cors from 'cors'
 import 'dotenv/config'
 import express from 'express'
@@ -50,6 +51,14 @@ app.post('/v1/assistant', async (req, res) => {
 		})
 	}
 })
+
+async function getPublicIp() {
+	const res = await fetch('https://api.ipify.org?format=json')
+	const data = await res.json()
+	console.log('Публичный IP сервера:', data.ip)
+}
+
+getPublicIp()
 
 const PORT = process.env.PORT || 4000
 app.listen(PORT, () =>

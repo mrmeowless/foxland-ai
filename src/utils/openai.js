@@ -1,12 +1,15 @@
 export async function getAssistantReply(message) {
 	try {
-		const response = await fetch('http://localhost:4000/v1/assistant', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ message }),
-		})
+		const response = await fetch(
+			'https://foxland-ai.onrender.com/v1/assistant',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ message }),
+			}
+		)
 		const data = await response.json()
 
 		if (!response.ok) {
