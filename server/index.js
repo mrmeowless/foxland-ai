@@ -12,6 +12,7 @@ const API_KEY = process.env.OPENAI_API_KEY
 app.post('/v1/tts', async (req, res) => {
 	const { text, voiceId } = req.body
 	const TTS_API_KEY = process.env.ELEVEN_API_KEY
+	console.log(TTS_API_KEY ? 'OK' : 'NOT SET')
 
 	try {
 		const ttsRes = await fetch(
